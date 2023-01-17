@@ -7,8 +7,12 @@ public class LongestCommonPrefix {
 //        String[] strs = {"ab", "a"};
 //        String[] strs = {"aaba","aaa","aa","aa","aa"};
         String[] strs = {"abca","aba","aaab"};
-        String s = longestCommonPrefix(strs);
-        System.out.println(s);
+
+        String result = longestCommonPrefix(strs);
+        String optimizedResult = longestCommonPrefixOptimized(strs);
+
+        System.out.println(result);
+        System.out.println(optimizedResult);
     }
 
     public static String longestCommonPrefix(String[] strs) {
@@ -39,6 +43,21 @@ public class LongestCommonPrefix {
             } else {
                 word = substringWord;
             }
+        }
+
+        return word;
+    }
+
+    public static String longestCommonPrefixOptimized(String[] strs) {
+        String word = "";
+
+        for(int i = 0; i < strs[0].length(); i++) {
+            for(String str : strs) {
+                if (i == str.length() || str.charAt(i) != strs[0].charAt(i)) {
+                    return word;
+                }
+            }
+            word += strs[0].charAt(i);
         }
 
         return word;
