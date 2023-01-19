@@ -17,8 +17,10 @@ public class TwoSum {
 
 
         int[] indexes = twoSum.twoSum(nums, target);
+        int[] indexesShorter = twoSum.twoSumShorterSolution(nums, target);
 
         System.out.println(indexes);
+        System.out.println(indexesShorter);
     }
 
     public int[] twoSum(int[] nums, int target) {
@@ -35,6 +37,24 @@ public class TwoSum {
             values.put(target - nums[i], nums[i]);
             indexes.put(nums[i], i);
         }
+        return null;
+    }
+
+    public int[] twoSumShorterSolution(int[] nums, int target) {
+
+        Map<Integer, Integer> indexes = new HashMap<>();
+
+        for(int i = 0; i < nums.length; i++) {
+
+            int diff = target - nums[i];
+
+            if (indexes.containsKey(diff)) {
+                return new int[]{i, indexes.get(diff)};
+            }
+
+            indexes.put(nums[i], i);
+        }
+
         return null;
     }
 }
