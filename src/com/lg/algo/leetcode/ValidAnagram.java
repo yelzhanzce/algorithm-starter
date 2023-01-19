@@ -17,6 +17,7 @@ public class ValidAnagram {
 
         System.out.println(validAnagram.isAnagram(s, t));
         System.out.println(validAnagram.isAnagramShorterSolution(s, t));
+        System.out.println(validAnagram.isAnagramSecondShorterSolution(s, t));
     }
 
     public boolean isAnagram(String s, String t) {
@@ -48,7 +49,6 @@ public class ValidAnagram {
                 if(!(sLettersCount.get(letter).equals(tLettersCount.get(letter)))) return false;
             }
             return true;
-
         }
 
         return false;
@@ -67,6 +67,23 @@ public class ValidAnagram {
 
         for(int i = 0; i < 26; i++) {
             if (sLetters[i] != tLetters[i]) return false;
+        }
+
+        return true;
+    }
+
+    public boolean isAnagramSecondShorterSolution(String s, String t) {
+        if (s.length() != t.length()) return false;
+
+        int[] counter = new int[26];
+
+        for(int i = 0; i < s.length(); i++) {
+            counter[s.charAt(i) - 'a']++;
+            counter[t.charAt(i) - 'a']--;
+        }
+
+        for (int i : counter) {
+            if (i != 0) return false;
         }
 
         return true;
