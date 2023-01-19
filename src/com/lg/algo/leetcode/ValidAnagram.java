@@ -45,9 +45,7 @@ public class ValidAnagram {
 
         if (sLettersCount.size() == tLettersCount.size()) {
             for(Character letter : sLettersCount.keySet()) {
-                if(!(sLettersCount.get(letter).equals(tLettersCount.get(letter)))) {
-                    return false;
-                }
+                if(!(sLettersCount.get(letter).equals(tLettersCount.get(letter)))) return false;
             }
             return true;
 
