@@ -1,4 +1,4 @@
-package com.lg.algo.leetcode;
+package com.lg.algo.leetcode.easy;
 
 public class LongestCommonPrefix {
     public static void main(String[] args) {

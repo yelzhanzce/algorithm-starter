@@ -1,4 +1,4 @@
-package com.lg.algo;
+package com.lg.algo.search;
 
 public class BinarySearch {
 
