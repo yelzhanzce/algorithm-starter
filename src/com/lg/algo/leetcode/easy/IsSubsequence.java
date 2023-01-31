@@ -9,8 +9,23 @@ public class IsSubsequence {
 
         String s = "abc", t = "ahbgdc";
         System.out.println(isSubsequence.isSubsequence(s, t));
+        System.out.println(isSubsequence.isSubsequenceShorter(s, t));
     }
 
+    public boolean isSubsequenceShorter(String s, String t) {
+        int i = 0, j = 0;
+
+        while (i < s.length() && j < t.length()) {
+            if (s.charAt(i) == t.charAt(j)) {
+                i++;
+            }
+            j++;
+        }
+
+        if (s.length() == i) return true;
+
+        return false;
+    }
 
     public boolean isSubsequence(String s, String t) {
         if (s.length() == 0) return true;
